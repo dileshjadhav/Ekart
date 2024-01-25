@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+    <title>Templates</title>
+</head>
+<body>
+    <h1>Tempates as response</h1>
+    profile name:  <h4>{{name}}</h4>
+
+    {% if x > y %}
+    <p>In if block</p>
+    <p>{{x}} is greater</p>
+    {% else %}
+    <p>In else block</p>
+    <p>{{y}} is greater</p>
+    {% endif %}
+
+    <h4>List is:</h4>
+    {% for x in List %}
+    <p>{{x}}</p>
+    {% endfor %}
+
+    <h2>Products</h2>
+    {% for x in products %}
+    <strong>product Name</strong>
+    <p>{{x}}</p>
+    {% endfor %}
+    
+     <h5>products</h5>
+
+     {% for x in products %}
+
+     <strong>Name</strong>{{x.name}} &nbsp;&nbsp;&nbsp;
+     <strong>category</strong>{{x.cat}} &nbsp;&nbsp;&nbsp;
+     <strong>Price</strong>{{x.price}} &nbsp;&nbsp;&nbsp;
+     <hr>
+
+     {% endfor %}
+
+     <button onclick="greet()">click me</button>
+
+     <img src="{% static 'images/mvt.pngs'%}" alt="">
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
+    <title>Estore|Register</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <a href="/home" style="text-decoration:none ;">Home</a>
+
+            </div>
+            <div class="col-md-5 shadow mt-5 p-4 mx-auto" >
+                <h3 class="text-center">Login</h3>
+                {% if errmsg %}
+                <div class="alert alert-danger"> 
+                    {{errmsg}}
+                </div>
+                {% endif %}
+                <form method="POST" action="">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="input1" class="form-label"><strong>Username:</strong>
+                        <input type="email" class="form-control" name="uname" id="input1" placeholder="name@example.com">
+                      </div><!--username-->
+
+                      
+                    <div class="mb-3">
+                        <label for="input2" class="form-label"><strong>Password:</strong>
+                        <input type="password" class="form-control" name="upass" id="input2" placeholder="enter password">
+                      </div><!--username-->
+
+                    
+
+                      <div class="mb-3">
+                        <input type="submit" class="btn btn-danger" value="login">
+                        Not a  User? <a href="/register" style="text-decoration: none;">register</a>
+                      </div>
+
+                     
+
+                </form>
+            </div>
+            
+
+        </div>
+    </div>
+    <script src="static/assets/js/bootstrap.min.js"></script>
+</body>
+</html>

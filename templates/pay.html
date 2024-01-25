@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<hr>
+<button id="rzp-button1" class="btn btn-success mt-5">Pay Now</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_sWX0N9T8sxTQOn", // Enter the Key ID generated from the Dashboard
+    "amount": "{{products.amount}}", // Amount is in currency subunits. Default currency is MYR. Hence, 50000 refers to 50000 sen.
+    "currency": "MYR",
+    "name": "EKART PVT LTD",
+    "description": "Test Transaction",
+    "image": "data:image/jpeg;base64,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",
+    "order_id": "{{products.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        window.location.href="http://localhost:8000/sendmail";
+    },
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "redirect": true,
+    "prefill": {
+        "name": "Siti Aisyah",
+        "email": "siti.aisyah@example.com",
+        "contact": "+601113455567"
+    },
+    "notes": {
+        "address": "Curlec Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+<br>
+<br>
+<br>
+<br>
+<hr>
+
+
+{% endblock 'main' %}
